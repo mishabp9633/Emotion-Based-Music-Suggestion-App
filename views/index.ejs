@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Music Player</title>
+</head>
+<body>
+  <h1>Music Player</h1>
+  <form action="/addMusic" method="post" enctype="multipart/form-data" class="music-form">
+    <input type="text" name="title" placeholder="Title" required>
+    <input type="text" name="artist" placeholder="Artist" required>
+    <input type="number" name="duration" placeholder="Duration (in seconds)" required>
+    <select name="genre" required>
+        <option value="" disabled selected>Select Genre</option>
+        <option value="Pop">Pop</option>
+        <option value="Rock">Rock</option>
+        <option value="Blues">Blues</option>
+        <option value="Country">Country</option>
+      </select>
+    <input type="file" name="songFile" required>
+    <button type="submit" class="add-button">Add Music</button>
+  </form>
+  <ul>
+    <% musicTracks.forEach(track => { %>
+      <li>
+        <%= track.title %> - <%= track.artist %> (Duration: <%= track.duration %>s, Genre: <%= track.genre %>)
+        <audio controls>
+          <source src="/music/<%= track._id %>" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </li>
+    <% }) %>
+  </ul>
+  <div class="emotion">
+    <!-- <a href="/record" class="record-button">Emotion Based Songs Video</a> -->
+
+    <a href="/photo" class="record-button">Emotion Based Songs</a>
+
+  </div>
+</body>
+</html>
