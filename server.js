@@ -118,7 +118,8 @@ app.post('/analyzeEmotion', async (req, res) => {
 
 async function dbconnection(){
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/music_player")
+    // await mongoose.connect("mongodb://127.0.0.1:27017/music_player")
+    await mongoose.connect("mongodb+srv://mishabp9633:98Zqm6FuQBKv1sCw@shobhagold.pjuqog5.mongodb.net/music_player?retryWrites=true&w=majority")
     console.log("monogo db connecetd");
     
   } catch (error) {
