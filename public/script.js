@@ -45,7 +45,7 @@ async function detectFaces() {
         highestProbability = detections[0].expressions[expression];
       }
     }
-
+  
     // Send the dominant emotion to the server
     fetch('/analyzeEmotion', {
       method: 'POST',
